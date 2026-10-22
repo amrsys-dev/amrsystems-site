@@ -2,11 +2,11 @@ export type Lang = "ru" | "uz" | "ar" | "en";
 export const LANGS: [Lang, string, string][] = [["ru", "🇷🇺", "Русский"], ["uz", "🇺🇿", "Oʻzbekcha"], ["ar", "🇸🇦", "العربية"], ["en", "🇬🇧", "English"]];
 export const SLUGS = ["safar", "hub", "3d-constructor", "vision", "materials"] as const;
 export type Slug = (typeof SLUGS)[number];
-export const META: Record<Slug, { name: string; icon: string; status: "dev" | "soon" | "live" }> = {
+export const META: Record<Slug, { name: string; icon: string; status: "dev" | "soon" | "live"; cover?: string; og?: string }> = {
   safar: { name: "AMR Safar", icon: "i-van", status: "dev" },
   hub: { name: "AMR Service Hub", icon: "i-services", status: "soon" },
   "3d-constructor": { name: "AMR 3D Constructor", icon: "i-tool", status: "soon" },
-  vision: { name: "AMR Vision", icon: "i-rent", status: "live" },
+  vision: { name: "AMR Vision", icon: "i-rent", status: "live", cover: "/apps/vision/cover.jpg", og: "/apps/vision/og.jpg" },
   materials: { name: "AMR Materials", icon: "i-bag", status: "soon" },
 };
 type P = { tag: string; value: string; f: [string, string][] };

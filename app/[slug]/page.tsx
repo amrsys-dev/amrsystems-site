@@ -3,7 +3,7 @@ import { Product } from "@/components/ui";
 import { META, SLUGS, type Slug } from "@/lib/i18n";
 export const dynamicParams = false;
 export function generateStaticParams() { return SLUGS.map(slug => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; return { title: (META as any)[slug]?.name + " — AMR Systems" }; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const m = (META as any)[slug]; const title = m?.name + " — AMR Systems"; return m?.og ? { title, openGraph: { title, images: [{ url: m.og, width: 1200, height: 628 }] }, twitter: { card: "summary_large_image", images: [m.og] } } : { title }; }
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; if (!(SLUGS as readonly string[]).includes(slug)) notFound();
   return <Product s={slug as Slug} />;

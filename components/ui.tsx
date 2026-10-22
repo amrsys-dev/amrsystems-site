@@ -77,7 +77,7 @@ export function Product({ s }: { s: Slug }) {
   const { t } = useT(); const p = t.p[s];
   return <main>
     <div className="sub"><div className="wrap"><b>{META[s].name}</b><Badge s={s} /></div></div>
-    <section className="hero wrap"><Ico id={META[s].icon} s={96} /><h1>{META[s].name}</h1><p className="ptag">{p.tag}</p><p className="lead">{p.value}</p>
+    <section className="hero wrap">{META[s].cover ? <img className="cover" src={META[s].cover} alt={META[s].name} width={1024} height={1024} /> : <Ico id={META[s].icon} s={96} />}<h1>{META[s].name}</h1><p className="ptag">{p.tag}</p><p className="lead">{p.value}</p>
       <div className="ctas one"><Launch s={s} /></div></section>
     <section className="wrap"><h2>{t.features}</h2><div className="grid">{p.f.map(([a, b]) => <div key={a} className="card feat"><b>{a}</b><p>{b}</p></div>)}</div></section>
     <section className="wrap more"><Link className="btn s" href="/">{t.explore}</Link></section>
