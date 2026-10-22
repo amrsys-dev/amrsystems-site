@@ -1,0 +1,8 @@
+{
+  "_comment": "Launch URLs for AMR PWAs. Put the app URL in 'url' and it becomes an active 'Открыть приложение' button. Empty url = disabled 'Скоро'.",
+  "3d-constructor": { "url": "" },
+  "vision": { "url": "" },
+  "materials": { "url": "" },
+  "hub": { "url": "" },
+  "safar": { "url": "" }
+}
