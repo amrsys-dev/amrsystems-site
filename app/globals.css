@@ -61,3 +61,7 @@ input:disabled{opacity:.6}
 .fcols b{color:var(--t)}.fcols a{text-decoration:none;min-height:24px}
 .copy{margin-top:24px;font-size:14px}
 @media(max-width:560px){.hide-s{display:none}.bar{gap:8px}}
+
+.cover{width:min(520px,92%);height:auto;aspect-ratio:1/1;border-radius:16px;margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 10px 28px rgba(0,0,0,.18)}
+.pcard{width:min(560px,92%);height:auto;aspect-ratio:3/2;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.08),0 10px 28px rgba(0,0,0,.18)}
+.phero{display:block}.phero img{display:block;width:100%;height:auto;max-height:72vh;object-fit:cover}

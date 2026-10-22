@@ -55,7 +55,7 @@ export function Footer() {
     <p className="copy">© 2026 AMR Systems</p></div></footer>;
 }
 
-export const Badge = ({ s }: { s: Slug }) => { const { t } = useT(); return <span className="chip">{META[s].status === "dev" ? t.dev : t.soon}</span>; };
+export const Badge = ({ s }: { s: Slug }) => { const { t } = useT(); return <span className="chip">{META[s].status === "live" ? t.live : META[s].status === "dev" ? t.dev : t.soon}</span>; };
 
 export function Launch({ s }: { s: Slug }) {
   const { t, apps } = useT(); const url = apps[s]?.url;
@@ -68,7 +68,7 @@ export function Home() {
     <section className="hero wrap"><img className="heroimg" src="/amr-hero.webp" width={798} height={320} alt="AMR Systems" />
       <h1>{t.tagline}</h1><p className="lead">{t.sub}</p></section>
     {SLUGS.map((s, i) => <section key={s} className={"tile " + (i % 2 ? "alt" : "")}><div className="wrap tin">
-      <Ico id={META[s].icon} s={72} /><Badge s={s} /><h2 className="pt">{META[s].name}</h2><p className="ptag">{t.p[s].tag}</p><p className="lead">{t.p[s].value}</p>
+      {META[s].card ? <img className="pcard" src={META[s].card} alt={META[s].name} width={1200} height={800} loading="lazy" /> : <Ico id={META[s].icon} s={72} />}<Badge s={s} /><h2 className="pt">{META[s].name}</h2><p className="ptag">{t.p[s].tag}</p><p className="lead">{t.p[s].value}</p>
       <div className="ctas"><Link className="btn s" href={"/" + s}>{t.learn}</Link><Launch s={s} /></div></div></section>)}
   </main>;
 }
@@ -77,7 +77,8 @@ export function Product({ s }: { s: Slug }) {
   const { t } = useT(); const p = t.p[s];
   return <main>
     <div className="sub"><div className="wrap"><b>{META[s].name}</b><Badge s={s} /></div></div>
-    <section className="hero wrap"><Ico id={META[s].icon} s={96} /><h1>{META[s].name}</h1><p className="ptag">{p.tag}</p><p className="lead">{p.value}</p>
+    {META[s].heroWide && <picture className="phero"><source media="(max-width: 700px)" srcSet={META[s].heroMobile || META[s].heroWide} /><img src={META[s].heroWide} alt={META[s].name} width={1920} height={1080} /></picture>}
+    <section className="hero wrap">{META[s].cover ? <img className="cover" src={META[s].cover} alt={META[s].name} width={1024} height={1024} /> : <Ico id={META[s].icon} s={96} />}<h1>{META[s].name}</h1><p className="ptag">{p.tag}</p><p className="lead">{p.value}</p>
       <div className="ctas one"><Launch s={s} /></div></section>
     <section className="wrap"><h2>{t.features}</h2><div className="grid">{p.f.map(([a, b]) => <div key={a} className="card feat"><b>{a}</b><p>{b}</p></div>)}</div></section>
     <section className="wrap more"><Link className="btn s" href="/">{t.explore}</Link></section>
