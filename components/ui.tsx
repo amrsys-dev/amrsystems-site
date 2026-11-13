@@ -30,7 +30,7 @@ export function Nav() {
   const flag = LANGS.find(x => x[0] === l)![1];
   return (
     <header className="hdr"><div className="wrap bar">
-      <Link href="/" aria-label="AMR"><img className="mono" src="/amr-logo.svg" width={120} height={52} alt="AMR" /></Link>
+      <Link href="/" aria-label="AMR"><img className="mono" src="/amr-monogram.jpg" width={104} height={64} alt="AMR — official monogram" /></Link>
       <nav className="links">
         <div className="dd"><button className="nl" onClick={e => { e.stopPropagation(); setM(m === "p" ? "" : "p"); }}>{t.products} ▾</button>
           {m === "p" && <div className="menu pm">{SLUGS.map(s => <Link key={s} href={"/" + s} className="mi"><Ico id={META[s].icon} s={30} /><span>{META[s].name}</span></Link>)}</div>}
@@ -64,12 +64,84 @@ export function Launch({ s }: { s: Slug }) {
 
 export function Home() {
   const { t } = useT();
-  return <main>
-    <section className="hero wrap"><img className="heroimg" src="/amr-hero.webp" width={798} height={320} alt="AMR Systems" />
-      <h1>{t.tagline}</h1><p className="lead">{t.sub}</p></section>
-    {SLUGS.map((s, i) => <section key={s} className={"tile " + (i % 2 ? "alt" : "")}><div className="wrap tin">
-      <Ico id={META[s].icon} s={72} /><Badge s={s} /><h2 className="pt">{META[s].name}</h2><p className="ptag">{t.p[s].tag}</p><p className="lead">{t.p[s].value}</p>
-      <div className="ctas"><Link className="btn s" href={"/" + s}>{t.learn}</Link><Launch s={s} /></div></div></section>)}
+  const [intro, setIntro] = useState(false);
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const seen = window.sessionStorage.getItem("amr-intro-seen");
+    if (!seen && !reduced) setIntro(true);
+  }, []);
+  useEffect(() => {
+    if (!intro) return;
+    const timer = window.setTimeout(() => {
+      setIntro(false);
+      window.sessionStorage.setItem("amr-intro-seen", "1");
+    }, 4300);
+    return () => window.clearTimeout(timer);
+  }, [intro]);
+  const closeIntro = () => {
+    setIntro(false);
+    window.sessionStorage.setItem("amr-intro-seen", "1");
+  };
+  return <main className="home">
+    {intro && <div className="intro" role="dialog" aria-label="AMR Systems introduction">
+      <div className="intro-orbit" />
+      <img src="/amr-monogram-glow.jpg" alt="" className="intro-mark" />
+      <div className="intro-name">AMR <span>SYSTEMS</span></div>
+      <div className="intro-line" />
+      <button className="intro-skip" onClick={closeIntro}>Skip intro <span>→</span></button>
+    </div>}
+    <section className="hero hero-main">
+      <div className="hero-grid" />
+      <div className="hero-copy">
+        <div className="eyebrow"><span className="eyebrow-dot" /> INDEPENDENT TECHNOLOGIES · ONE ECOSYSTEM</div>
+        <img className="hero-monogram" src="/amr-monogram.jpg" width={460} height={460} alt="AMR official monogram" />
+        <p className="hero-kicker">WELCOME TO</p>
+        <h1>AMR <span>SYSTEMS</span></h1>
+        <p className="hero-statement">Engineering intelligent systems<br className="desktop-break"/> for the real world.</p>
+        <p className="hero-description">A connected ecosystem of independent digital products, engineering tools and emerging technologies.</p>
+        <div className="hero-actions">
+          <a className="btn hero-primary" href="#ecosystem">Explore the ecosystem <span>↘</span></a>
+          <a className="hero-secondary" href="#about">Discover AMR <span>→</span></a>
+        </div>
+      </div>
+      <div className="hero-foot"><span>DESIGN</span><i /> <span>ENGINEER</span><i /> <span>BUILD</span></div>
+    </section>
+
+    <section className="manifesto" id="about">
+      <div className="wrap manifesto-inner">
+        <p className="section-index">01 / OUR PRINCIPLE</p>
+        <h2>One vision.<br/><em>Independent solutions.</em></h2>
+        <p>AMR brings focused products together through a shared ecosystem. Each solution has its own purpose, interface and development path — connected where it creates real value.</p>
+      </div>
+    </section>
+
+    <section className="ecosystem-section" id="ecosystem">
+      <div className="wrap">
+        <div className="section-head">
+          <div><p className="section-index">02 / THE ECOSYSTEM</p><h2>Technology in <em>motion.</em></h2></div>
+          <p>Explore the products and research directions shaping the AMR ecosystem.</p>
+        </div>
+        <div className="product-grid">
+          {SLUGS.map((s, i) => <article key={s} className={`product-card product-card-${i}`}>
+            <div className="product-card-top"><span className="product-number">0{i + 1}</span><Badge s={s} /></div>
+            <div className="product-symbol"><Ico id={META[s].icon} s={48} /></div>
+            <h3>{META[s].name}</h3>
+            <p className="product-tagline">{t.p[s].tag}</p>
+            <p className="product-description">{t.p[s].value}</p>
+            <div className="product-links"><Link href={`/${s}`}>Explore product <span>↗</span></Link><Launch s={s} /></div>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="vision-strip">
+      <div className="wrap vision-inner">
+        <div><p className="section-index">03 / THE AMR APPROACH</p><h2>From ideas<br/>to <em>real solutions.</em></h2></div>
+        <div className="vision-steps"><div><b>01</b><span>Understand</span></div><i /> <div><b>02</b><span>Engineer</span></div><i /> <div><b>03</b><span>Connect</span></div><i /> <div><b>04</b><span>Deliver</span></div></div>
+      </div>
+    </section>
+
+    <section className="closing-cta"><div className="wrap"><img src="/amr-monogram.jpg" alt="AMR" /><p>AMR SYSTEMS</p><h2>Built around ideas.<br/><em>Designed for reality.</em></h2><a href="#ecosystem">Explore our ecosystem <span>↗</span></a></div></section>
   </main>;
 }
 
