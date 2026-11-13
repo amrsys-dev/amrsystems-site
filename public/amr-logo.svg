@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 140" fill="none">
+  <defs>
+    <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8E8E8"/>
+      <stop offset="45%" stop-color="#B0B0B0"/>
+      <stop offset="100%" stop-color="#6A6A6A"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B6914"/>
+      <stop offset="50%" stop-color="#C4A35A"/>
+      <stop offset="100%" stop-color="#E8D5A3"/>
+    </linearGradient>
+  </defs>
+  <!-- A with wood roof -->
+  <path d="M20 110 L55 20 L90 110 Z" fill="url(#steel)"/>
+  <path d="M32 78 L55 28 L78 78 Z" fill="url(#wood)"/>
+  <path d="M38 62 L55 38 L72 62 Z" fill="url(#steel)"/>
+  <!-- M -->
+  <path d="M100 110 L100 35 L130 75 L160 35 L160 110 L145 110 L145 62 L130 90 L115 62 L115 110 Z" fill="url(#steel)"/>
+  <!-- R -->
+  <path d="M175 110 L175 35 L220 35 C245 35 255 50 255 65 C255 80 240 90 220 90 L195 90 L230 110 L210 110 L180 92 L180 110 Z" fill="url(#steel)"/>
+  <path d="M190 50 L190 75 L215 75 C225 75 230 70 230 62.5 C230 55 225 50 215 50 Z" fill="#1A1A1A"/>
+</svg>

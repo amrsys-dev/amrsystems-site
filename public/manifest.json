@@ -1,0 +1,13 @@
+{
+  "name": "AMR Systems",
+  "short_name": "AMR",
+  "description": "AMR Ecosystem — digital products for craft and life",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F4F2",
+  "theme_color": "#0F5C3A",
+  "icons": [
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

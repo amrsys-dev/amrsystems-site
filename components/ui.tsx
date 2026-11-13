@@ -30,7 +30,7 @@ export function Nav() {
   const flag = LANGS.find(x => x[0] === l)![1];
   return (
     <header className="hdr"><div className="wrap bar">
-      <Link href="/" aria-label="AMR"><img className="mono" src="/amr-mono.webp" width={72} height={29} alt="AMR" /></Link>
+      <Link href="/" aria-label="AMR"><img className="mono" src="/amr-logo.svg" width={120} height={52} alt="AMR" /></Link>
       <nav className="links">
         <div className="dd"><button className="nl" onClick={e => { e.stopPropagation(); setM(m === "p" ? "" : "p"); }}>{t.products} ▾</button>
           {m === "p" && <div className="menu pm">{SLUGS.map(s => <Link key={s} href={"/" + s} className="mi"><Ico id={META[s].icon} s={30} /><span>{META[s].name}</span></Link>)}</div>}

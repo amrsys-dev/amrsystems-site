@@ -1,9 +1,9 @@
 {
-  "safar": { "url": "https://amr-safar.vercel.app" },
-  "self": { "url": "" },
-  "cutting": { "url": "" },
-  "hub": { "url": "" },
-  "3d-constructor": { "url": "" },
-  "vision": { "url": "" },
-  "materials": { "url": "" }
+  "safar": { "url": "https://amr-safar.vercel.app", "status": "live" },
+  "self": { "url": "", "status": "dev" },
+  "cutting": { "url": "", "status": "dev" },
+  "hub": { "url": "", "status": "soon" },
+  "3d-constructor": { "url": "", "status": "soon" },
+  "vision": { "url": "", "status": "soon" },
+  "materials": { "url": "", "status": "soon" }
 }
