@@ -55,7 +55,7 @@ export function Footer() {
     <p className="copy">© 2026 AMR Systems</p></div></footer>;
 }
 
-export const Badge = ({ s }: { s: Slug }) => { const { t } = useT(); return <span className="chip">{META[s].status === "dev" ? t.dev : t.soon}</span>; };
+export const Badge = ({ s }: { s: Slug }) => { const { t } = useT(); return <span className="chip">{META[s].status === "live" ? t.open : META[s].status === "dev" ? t.dev : t.soon}</span>; };
 
 export function Launch({ s }: { s: Slug }) {
   const { t, apps } = useT(); const url = apps[s]?.url;

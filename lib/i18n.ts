@@ -1,9 +1,10 @@
 export type Lang = "ru" | "uz" | "ar" | "en";
 export const LANGS: [Lang, string, string][] = [["ru", "🇷🇺", "Русский"], ["uz", "🇺🇿", "Oʻzbekcha"], ["ar", "🇸🇦", "العربية"], ["en", "🇬🇧", "English"]];
-export const SLUGS = ["safar", "hub", "3d-constructor", "vision", "materials"] as const;
+export const SLUGS = ["safar", "self", "hub", "3d-constructor", "vision", "materials"] as const;
 export type Slug = (typeof SLUGS)[number];
-export const META: Record<Slug, { name: string; icon: string; status: "dev" | "soon" }> = {
-  safar: { name: "AMR Safar", icon: "i-van", status: "dev" },
+export const META: Record<Slug, { name: string; icon: string; status: "live" | "dev" | "soon" }> = {
+  safar: { name: "AMR Safar", icon: "i-van", status: "live" },
+  self: { name: "Self", icon: "i-id", status: "dev" },
   hub: { name: "AMR Service Hub", icon: "i-services", status: "soon" },
   "3d-constructor": { name: "AMR 3D Constructor", icon: "i-tool", status: "soon" },
   vision: { name: "AMR Vision", icon: "i-rent", status: "soon" },
@@ -11,7 +12,7 @@ export const META: Record<Slug, { name: string; icon: string; status: "dev" | "s
 };
 type P = { tag: string; value: string; f: [string, string][] };
 type D = {
-  products: string; signin: string; signup: string; account: string; tagline: string; sub: string; learn: string; open: string; soon: string; dev: string; explore: string;
+  products: string; signin: string; signup: string; account: string; tagline: string; sub: string; learn: string; open: string; soon: string; dev: string; live: string; explore: string;
   features: string; email: string; password: string; name: string; google: string; or: string; noacc: string; haveacc: string; authoff: string; signout: string; hello: string; pwhint: string;
   p: Record<Slug, P>;
 };
@@ -19,10 +20,12 @@ export const T: Record<Lang, D> = {
   ru: {
     products: "Продукты", signin: "Войти", signup: "Регистрация", account: "Аккаунт",
     tagline: "Одна экосистема. Безграничные возможности.", sub: "AMR Systems: цифровые продукты для дома, ремесла и жизни в Саудовской Аравии.",
-    learn: "Подробнее", open: "Открыть приложение", soon: "Скоро", dev: "В разработке", explore: "Все продукты", features: "Возможности",
+    learn: "Подробнее", open: "Открыть приложение", soon: "Скоро", live: "Live", dev: "В разработке", explore: "Все продукты", features: "Возможности",
     email: "Эл. почта", password: "Пароль", name: "Имя", google: "Продолжить с Google", or: "или", noacc: "Нет аккаунта? Зарегистрируйтесь", haveacc: "Уже есть аккаунт? Войдите",
     authoff: "Вход и регистрация скоро заработают.", signout: "Выйти", hello: "Вы вошли как", pwhint: "Не меньше 8 символов",
     p: {
+      safar: { tag: "Дорога под контролем.", value: "Попутки и жильё для приезжих в Саудовской Аравии. Telegram Mini App.",
+      self: { tag: "Ваша цифровая визитка.", value: "Личный идентификатор. Одна ссылка вместо десятков аккаунтов.", f: [["Визитка", "Все контакты в одной ссылке."], ["Контроль видимости", "Что показывать — решаете вы."], ["Без SIM", "Не привязан к номеру телефона."]] },
       safar: { tag: "Дорога под контролем.", value: "Мини-приложение в Telegram для водителей межгорода в КСА.", f: [["Счётчик дней визы", "Сколько дней осталось по визе — всегда перед глазами."], ["Маршрут и топливо", "Маршрут между городами КСА и стоимость топлива заранее."], ["Отметки на дороге", "Ремонт дороги, опасные участки и ДТП — водители отмечают для своих."], ["Попутчики к границе", "Иордания (Аль-Хадиса, Аль-Умари) и Катар (Салва). Объявления удаляются после выезда."]] },
       hub: { tag: "Люди в решениях.", value: "Сервисы и помощь для приезжих в Саудовской Аравии в одном месте.", f: [["Услуги рядом", "Мастера, перевозки и бытовые услуги."], ["На родном языке", "Русский, узбекский, арабский и английский."], ["Через Telegram", "Связь с исполнителями там, где вам удобно."]] },
       "3d-constructor": { tag: "От идеи до реальности.", value: "3D-конструктор мебели: соберите проект и увидьте его до изготовления.", f: [["3D-проект", "Размеры, материалы и вид изделия в объёме."], ["Под ваш размер", "Мебель, подогнанная под конкретное помещение."], ["Готово к производству", "Проект, который можно передать мастеру."]] },
@@ -33,10 +36,11 @@ export const T: Record<Lang, D> = {
   uz: {
     products: "Mahsulotlar", signin: "Kirish", signup: "Roʻyxatdan oʻtish", account: "Akkaunt",
     tagline: "Bitta ekotizim. Cheksiz imkoniyatlar.", sub: "AMR Systems: uy, hunarmandchilik va Saudiya Arabistonidagi hayot uchun raqamli mahsulotlar.",
-    learn: "Batafsil", open: "Ilovani ochish", soon: "Tez orada", dev: "Ishlab chiqilmoqda", explore: "Barcha mahsulotlar", features: "Imkoniyatlar",
+    learn: "Batafsil", open: "Ilovani ochish", soon: "Tez orada", live: "Live", dev: "Ishlab chiqilmoqda", explore: "Barcha mahsulotlar", features: "Imkoniyatlar",
     email: "Email", password: "Parol", name: "Ism", google: "Google bilan davom etish", or: "yoki", noacc: "Akkaunt yoʻqmi? Roʻyxatdan oʻting", haveacc: "Akkaunt bormi? Kiring",
     authoff: "Kirish va roʻyxatdan oʻtish tez orada ishlaydi.", signout: "Chiqish", hello: "Siz kirdingiz:", pwhint: "Kamida 8 ta belgi",
     p: {
+      self: { tag: "Raqamli vizitka.", value: "Shaxsiy identifikator. Bitta havola o‘rniga o‘nlab akkauntlar.", f: [["Vizitka", "Barcha kontaktlar bitta havolada."], ["Ko‘rinish", "Nima ko‘rsatishni o‘zingiz tanlaysiz."], ["SIM yo‘q", "Telefon raqamiga bog‘liq emas."]] },
       safar: { tag: "Yoʻl nazoratda.", value: "Saudiyadagi shaharlararo haydovchilar uchun Telegram mini-ilovasi.", f: [["Viza kunlari hisoblagichi", "Vizangiz tugashiga necha kun qolgani doim koʻz oldingizda."], ["Yoʻnalish va yoqilgʻi", "Saudiya shaharlari orasidagi yoʻnalish va yoqilgʻi narxi oldindan."], ["Yoʻldagi belgilar", "Yoʻl taʼmiri, xavfli joylar va avariyalar — haydovchilar bir-biri uchun belgilaydi."], ["Chegaraga hamrohlar", "Iordaniya (Al-Hadisa, Al-Umari) va Qatar (Salva). Eʼlonlar joʻnab ketgandan keyin oʻchiriladi."]] },
       hub: { tag: "Yechimlardagi odamlar.", value: "Saudiya Arabistonidagi mehmonlar uchun xizmatlar va yordam bir joyda.", f: [["Yaqin xizmatlar", "Ustalar, tashish va maishiy xizmatlar."], ["Ona tilida", "Rus, oʻzbek, arab va ingliz tillarida."], ["Telegram orqali", "Ijrochilar bilan qulay joyda aloqa."]] },
       "3d-constructor": { tag: "Gʻoyadan haqiqatga.", value: "Mebel uchun 3D konstruktor: loyihani tuzing va tayyorlanishidan oldin koʻring.", f: [["3D loyiha", "Oʻlchamlar, materiallar va buyumning hajmdagi koʻrinishi."], ["Oʻlchamingizga", "Aniq xonaga moslangan mebel."], ["Ishlab chiqarishga tayyor", "Ustaga topshirsa boʻladigan loyiha."]] },
@@ -47,10 +51,11 @@ export const T: Record<Lang, D> = {
   ar: {
     products: "المنتجات", signin: "تسجيل الدخول", signup: "إنشاء حساب", account: "الحساب",
     tagline: "منظومة واحدة. إمكانيات لا حدود لها.", sub: "AMR Systems: منتجات رقمية للمنزل والحِرفة والحياة في المملكة العربية السعودية.",
-    learn: "المزيد", open: "فتح التطبيق", soon: "قريبًا", dev: "قيد التطوير", explore: "كل المنتجات", features: "المزايا",
+    learn: "المزيد", open: "فتح التطبيق", soon: "قريبًا", live: "Live", dev: "قيد التطوير", explore: "كل المنتجات", features: "المزايا",
     email: "البريد الإلكتروني", password: "كلمة المرور", name: "الاسم", google: "المتابعة باستخدام Google", or: "أو", noacc: "ليس لديك حساب؟ أنشئ حسابًا", haveacc: "لديك حساب؟ سجّل الدخول",
     authoff: "تسجيل الدخول وإنشاء الحساب سيتوفران قريبًا.", signout: "تسجيل الخروج", hello: "تم تسجيل الدخول باسم", pwhint: "8 أحرف على الأقل",
     p: {
+      self: { tag: "بطاقة رقمية.", value: "معرف شخصي. رابط واحد بدلاً من عشرات الحسابات.", f: [["بطاقة", "كل جهات الاتصال في رابط واحد."], ["الخصوصية", "تتحكم في ما يظهر."], ["بدون شريحة", "غير مرتبط برقم الهاتف."]] },
       safar: { tag: "الطريق تحت السيطرة.", value: "تطبيق مصغّر في تيليجرام لسائقي الرحلات بين المدن في المملكة.", f: [["عدّاد أيام التأشيرة", "عدد الأيام المتبقية في تأشيرتك أمامك دائمًا."], ["المسار والوقود", "المسار بين مدن المملكة وتكلفة الوقود مسبقًا."], ["علامات على الطريق", "أعمال الطرق والمقاطع الخطرة والحوادث يضعها السائقون لبعضهم."], ["رفقاء الطريق إلى الحدود", "الأردن (الحديثة، العمري) وقطر (سلوى). تُحذف الإعلانات بعد المغادرة."]] },
       hub: { tag: "أشخاص في الحلول.", value: "خدمات ومساعدة للقادمين إلى المملكة في مكان واحد.", f: [["خدمات قريبة", "حِرفيون ونقل وخدمات منزلية."], ["بلغتك", "الروسية والأوزبكية والعربية والإنجليزية."], ["عبر تيليجرام", "تواصل مع مقدّمي الخدمة حيث يناسبك."]] },
       "3d-constructor": { tag: "من الفكرة إلى الواقع.", value: "مصمّم أثاث ثلاثي الأبعاد: أنشئ مشروعك وشاهده قبل التصنيع.", f: [["مشروع ثلاثي الأبعاد", "المقاسات والمواد وشكل القطعة بالأبعاد الثلاثة."], ["على مقاسك", "أثاث مصمّم لمساحتك بالتحديد."], ["جاهز للتصنيع", "مشروع يمكن تسليمه للحِرفي."]] },
@@ -61,7 +66,7 @@ export const T: Record<Lang, D> = {
   en: {
     products: "Products", signin: "Sign in", signup: "Sign up", account: "Account",
     tagline: "One ecosystem. Infinite possibilities.", sub: "AMR Systems: digital products for home, craft and life in Saudi Arabia.",
-    learn: "Learn more", open: "Open app", soon: "Coming soon", dev: "In development", explore: "All products", features: "Features",
+    learn: "Learn more", open: "Open app", soon: "Coming soon", live: "Live", dev: "In development", explore: "All products", features: "Features",
     email: "Email", password: "Password", name: "Name", google: "Continue with Google", or: "or", noacc: "No account? Sign up", haveacc: "Have an account? Sign in",
     authoff: "Sign in and sign up are coming soon.", signout: "Sign out", hello: "Signed in as", pwhint: "At least 8 characters",
     p: {
