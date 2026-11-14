@@ -104,7 +104,7 @@ export function Home() {
           <a className="hero-secondary" href="#about">{t.home.discover} <span>→</span></a>
         </div>
       </div>
-      <div className="hero-foot">{t.home.foot.map((x,i) => <React.Fragment key={x}>{i > 0 && <i /> }<span>{x}</span></React.Fragment>)}</div>
+      <div className="hero-foot"><span>{t.home.foot[0]}</span><i /><span>{t.home.foot[1]}</span><i /><span>{t.home.foot[2]}</span></div>
     </section>
 
     <section className="manifesto" id="about">
