@@ -88,38 +88,38 @@ export function Home() {
       <img src="/amr-monogram-glow.jpg" alt="" className="intro-mark" />
       <div className="intro-name">AMR <span>SYSTEMS</span></div>
       <div className="intro-line" />
-      <button className="intro-skip" onClick={closeIntro}>Skip intro <span>→</span></button>
+      <button className="intro-skip" onClick={closeIntro}>{t.home.introSkip} <span>→</span></button>
     </div>}
     <section className="hero hero-main">
       <div className="hero-grid" />
       <div className="hero-copy">
-        <div className="eyebrow"><span className="eyebrow-dot" /> INDEPENDENT TECHNOLOGIES · ONE ECOSYSTEM</div>
+        <div className="eyebrow"><span className="eyebrow-dot" /> {t.home.eyebrow}</div>
         <img className="hero-monogram" src="/amr-monogram.jpg" width={460} height={460} alt="AMR official monogram" />
-        <p className="hero-kicker">WELCOME TO</p>
+        <p className="hero-kicker">{t.home.welcome}</p>
         <h1>AMR <span>SYSTEMS</span></h1>
-        <p className="hero-statement">Engineering intelligent systems<br className="desktop-break"/> for the real world.</p>
-        <p className="hero-description">A connected ecosystem of independent digital products, engineering tools and emerging technologies.</p>
+        <p className="hero-statement">{t.home.statement}</p>
+        <p className="hero-description">{t.home.description}</p>
         <div className="hero-actions">
-          <a className="btn hero-primary" href="#ecosystem">Explore the ecosystem <span>↘</span></a>
-          <a className="hero-secondary" href="#about">Discover AMR <span>→</span></a>
+          <a className="btn hero-primary" href="#ecosystem">{t.home.explore} <span>↘</span></a>
+          <a className="hero-secondary" href="#about">{t.home.discover} <span>→</span></a>
         </div>
       </div>
-      <div className="hero-foot"><span>DESIGN</span><i /> <span>ENGINEER</span><i /> <span>BUILD</span></div>
+      <div className="hero-foot"><span>{t.home.foot[0]}</span><i /><span>{t.home.foot[1]}</span><i /><span>{t.home.foot[2]}</span></div>
     </section>
 
     <section className="manifesto" id="about">
       <div className="wrap manifesto-inner">
-        <p className="section-index">01 / OUR PRINCIPLE</p>
-        <h2>One vision.<br/><em>Independent solutions.</em></h2>
-        <p>AMR brings focused products together through a shared ecosystem. Each solution has its own purpose, interface and development path — connected where it creates real value.</p>
+        <p className="section-index">{t.home.principle}</p>
+        <h2>{t.home.principleTitle}<br/><em>{t.home.principleEmphasis}</em></h2>
+        <p>{t.home.principleBody}</p>
       </div>
     </section>
 
     <section className="ecosystem-section" id="ecosystem">
       <div className="wrap">
         <div className="section-head">
-          <div><p className="section-index">02 / THE ECOSYSTEM</p><h2>Technology in <em>motion.</em></h2></div>
-          <p>Explore the products and research directions shaping the AMR ecosystem.</p>
+          <div><p className="section-index">{t.home.ecosystem}</p><h2>{t.home.ecosystemTitle} <em>{t.home.ecosystemEmphasis}</em></h2></div>
+          <p>{t.home.ecosystemBody}</p>
         </div>
         <div className="product-grid">
           {SLUGS.map((s, i) => <article key={s} className={`product-card product-card-${i}`}>
@@ -128,7 +128,7 @@ export function Home() {
             <h3>{META[s].name}</h3>
             <p className="product-tagline">{t.p[s].tag}</p>
             <p className="product-description">{t.p[s].value}</p>
-            <div className="product-links"><Link href={`/${s}`}>Explore product <span>↗</span></Link><Launch s={s} /></div>
+            <div className="product-links"><Link href={`/${s}`}>{t.learn} <span>↗</span></Link><Launch s={s} /></div>
           </article>)}
         </div>
       </div>
@@ -136,12 +136,12 @@ export function Home() {
 
     <section className="vision-strip">
       <div className="wrap vision-inner">
-        <div><p className="section-index">03 / THE AMR APPROACH</p><h2>From ideas<br/>to <em>real solutions.</em></h2></div>
-        <div className="vision-steps"><div><b>01</b><span>Understand</span></div><i /> <div><b>02</b><span>Engineer</span></div><i /> <div><b>03</b><span>Connect</span></div><i /> <div><b>04</b><span>Deliver</span></div></div>
+        <div><p className="section-index">{t.home.approach}</p><h2>{t.home.approachTitle}<br/>{t.home.approachEmphasis}</h2></div>
+        <div className="vision-steps"><div><b>01</b><span>{t.home.steps[0]}</span></div><i /> <div><b>02</b><span>{t.home.steps[1]}</span></div><i /> <div><b>03</b><span>{t.home.steps[2]}</span></div><i /> <div><b>04</b><span>{t.home.steps[3]}</span></div></div>
       </div>
     </section>
 
-    <section className="closing-cta"><div className="wrap"><img src="/amr-monogram.jpg" alt="AMR" /><p>AMR SYSTEMS</p><h2>Built around ideas.<br/><em>Designed for reality.</em></h2><a href="#ecosystem">Explore our ecosystem <span>↗</span></a></div></section>
+    <section className="closing-cta"><div className="wrap"><img src="/amr-monogram.jpg" alt="AMR" /><p>AMR SYSTEMS</p><h2>{t.home.closingTitle}<br/><em>{t.home.closingEmphasis}</em></h2><a href="#ecosystem">{t.home.closingLink} <span>↗</span></a></div></section>
   </main>;
 }
 
