@@ -15,10 +15,12 @@ type P = { tag: string; value: string; f: [string, string][] };
 type D = {
   products: string; signin: string; signup: string; account: string; tagline: string; sub: string; learn: string; open: string; soon: string; dev: string; live: string; explore: string;
   features: string; email: string; password: string; name: string; google: string; or: string; noacc: string; haveacc: string; authoff: string; signout: string; hello: string; pwhint: string;
+  home: { eyebrow: string; welcome: string; statement: string; description: string; explore: string; discover: string; foot: [string,string,string]; principle: string; principleTitle: string; principleEmphasis: string; principleBody: string; ecosystem: string; ecosystemTitle: string; ecosystemEmphasis: string; ecosystemBody: string; approach: string; approachTitle: string; approachEmphasis: string; steps: [string,string,string,string]; closingTitle: string; closingEmphasis: string; closingLink: string; introSkip: string; };
   p: Record<Slug, P>;
 };
 export const T: Record<Lang, D> = {
   ru: {
+    home: { eyebrow: "НЕЗАВИСИМЫЕ ТЕХНОЛОГИИ · ЕДИНАЯ ЭКОСИСТЕМА", welcome: "ДОБРО ПОЖАЛОВАТЬ", statement: "Инженерные системы для реального мира.", description: "Экосистема самостоятельных цифровых продуктов, инженерных инструментов и технологических разработок AMR.", explore: "Обзор экосистемы", discover: "О компании AMR", foot: ["ПРОЕКТИРУЕМ","РАЗРАБАТЫВАЕМ","СОЗДАЁМ"], principle: "01 / НАШ ПРИНЦИП", principleTitle: "Единое видение.", principleEmphasis: "Самостоятельные решения.", principleBody: "AMR объединяет специализированные продукты в общую экосистему. У каждого решения своя задача и собственный путь развития. Интеграция происходит там, где она действительно полезна.", ecosystem: "02 / ЭКОСИСТЕМА", ecosystemTitle: "Технологии", ecosystemEmphasis: "в действии.", ecosystemBody: "Изучите продукты AMR и направления разработки.", approach: "03 / ПОДХОД AMR", approachTitle: "От идеи", approachEmphasis: "к работающему решению.", steps: ["Понять задачу","Спроектировать","Связать","Реализовать"], closingTitle: "Создаём на основе идей.", closingEmphasis: "Проверяем реальностью.", closingLink: "Все продукты AMR", introSkip: "Пропустить заставку" },
     products: "Продукты", signin: "Войти", signup: "Регистрация", account: "Аккаунт",
     tagline: "Одна экосистема. Безграничные возможности.", sub: "AMR Systems: цифровые продукты для дома, ремесла и жизни в Саудовской Аравии.",
     learn: "Подробнее", open: "Открыть приложение", soon: "Скоро", live: "Live", dev: "В разработке", explore: "Все продукты", features: "Возможности",
@@ -35,6 +37,7 @@ export const T: Record<Lang, D> = {
     },
   },
   uz: {
+    home: { eyebrow: "MUSTAQIL TEXNOLOGIYALAR · YAGONA EKOTIZIM", welcome: "XUSH KELIBSIZ", statement: "Haqiqiy hayot uchun muhandislik tizimlari.", description: "AMR mustaqil raqamli mahsulotlar, muhandislik vositalari va texnologik ishlanmalar ekotizimi.", explore: "Ekotizimni ko‘rish", discover: "AMR haqida", foot: ["LOYIHALAYMIZ","ISHLAB CHIQAMIZ","YARATAMIZ"], principle: "01 / TAMOYILIMIZ", principleTitle: "Yagona qarash.", principleEmphasis: "Mustaqil yechimlar.", principleBody: "AMR maxsus mahsulotlarni yagona ekotizimga birlashtiradi. Har bir yechimning o‘z vazifasi va rivojlanish yo‘li bor. Integratsiya faqat haqiqiy qiymat yaratadigan joyda amalga oshadi.", ecosystem: "02 / EKOTIZIM", ecosystemTitle: "Texnologiyalar", ecosystemEmphasis: "amaliyotda.", ecosystemBody: "AMR mahsulotlari va ishlab chiqilayotgan yo‘nalishlar bilan tanishing.", approach: "03 / AMR YONDASHUVI", approachTitle: "G‘oyadan", approachEmphasis: "ishlaydigan yechimgacha.", steps: ["Tushunish","Loyihalash","Bog‘lash","Amalga oshirish"], closingTitle: "G‘oyalardan boshlaymiz.", closingEmphasis: "Amalda tekshiramiz.", closingLink: "AMR mahsulotlari", introSkip: "Kirishni o‘tkazib yuborish" },
     products: "Mahsulotlar", signin: "Kirish", signup: "Roʻyxatdan oʻtish", account: "Akkaunt",
     tagline: "Bitta ekotizim. Cheksiz imkoniyatlar.", sub: "AMR Systems: uy, hunarmandchilik va Saudiya Arabistonidagi hayot uchun raqamli mahsulotlar.",
     learn: "Batafsil", open: "Ilovani ochish", soon: "Tez orada", live: "Live", dev: "Ishlab chiqilmoqda", explore: "Barcha mahsulotlar", features: "Imkoniyatlar",
@@ -50,6 +53,7 @@ export const T: Record<Lang, D> = {
     },
   },
   ar: {
+    home: { eyebrow: "تقنيات مستقلة · منظومة متكاملة", welcome: "مرحبًا بكم", statement: "أنظمة هندسية للعالم الحقيقي.", description: "منظومة AMR من المنتجات الرقمية المستقلة والأدوات الهندسية والتطويرات التقنية.", explore: "استكشف المنظومة", discover: "اكتشف AMR", foot: ["نصمّم","نطوّر","نبني"], principle: "01 / مبدؤنا", principleTitle: "رؤية واحدة.", principleEmphasis: "حلول مستقلة.", principleBody: "تجمع AMR منتجات متخصصة ضمن منظومة واحدة. لكل حل غايته ومسار تطويره الخاص، ويتم الربط عندما يضيف قيمة حقيقية.", ecosystem: "02 / المنظومة", ecosystemTitle: "التقنية", ecosystemEmphasis: "في التطبيق.", ecosystemBody: "استكشف منتجات AMR ومجالات التطوير.", approach: "03 / منهج AMR", approachTitle: "من الفكرة", approachEmphasis: "إلى الحل العملي.", steps: ["الفهم","الهندسة","الربط","التنفيذ"], closingTitle: "نبني انطلاقًا من الأفكار.", closingEmphasis: "ونختبرها في الواقع.", closingLink: "منتجات AMR", introSkip: "تخطي المقدمة" },
     products: "المنتجات", signin: "تسجيل الدخول", signup: "إنشاء حساب", account: "الحساب",
     tagline: "منظومة واحدة. إمكانيات لا حدود لها.", sub: "AMR Systems: منتجات رقمية للمنزل والحِرفة والحياة في المملكة العربية السعودية.",
     learn: "المزيد", open: "فتح التطبيق", soon: "قريبًا", live: "Live", dev: "قيد التطوير", explore: "كل المنتجات", features: "المزايا",
@@ -65,6 +69,7 @@ export const T: Record<Lang, D> = {
     },
   },
   en: {
+    home: { eyebrow: "INDEPENDENT TECHNOLOGIES · ONE ECOSYSTEM", welcome: "WELCOME TO", statement: "Engineering systems for the real world.", description: "An ecosystem of independent digital products, engineering tools and technology development by AMR.", explore: "Explore the ecosystem", discover: "Discover AMR", foot: ["DESIGN","ENGINEER","BUILD"], principle: "01 / OUR PRINCIPLE", principleTitle: "One vision.", principleEmphasis: "Independent solutions.", principleBody: "AMR brings focused products together in one ecosystem. Each solution has its own purpose and development path. Integration happens where it creates real value.", ecosystem: "02 / THE ECOSYSTEM", ecosystemTitle: "Technology", ecosystemEmphasis: "in practice.", ecosystemBody: "Explore AMR products and active development directions.", approach: "03 / THE AMR APPROACH", approachTitle: "From an idea", approachEmphasis: "to a working solution.", steps: ["Understand","Engineer","Connect","Deliver"], closingTitle: "Built around ideas.", closingEmphasis: "Proven in reality.", closingLink: "Explore AMR products", introSkip: "Skip intro" },
     products: "Products", signin: "Sign in", signup: "Sign up", account: "Account",
     tagline: "One ecosystem. Infinite possibilities.", sub: "AMR Systems: digital products for home, craft and life in Saudi Arabia.",
     learn: "Learn more", open: "Open app", soon: "Coming soon", live: "Live", dev: "In development", explore: "All products", features: "Features",
