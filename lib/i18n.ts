@@ -1,5 +1,5 @@
-export type Lang = "ru" | "uz" | "ar" | "en";
-export const LANGS: [Lang, string, string][] = [["ru", "🇷🇺", "Русский"], ["uz", "🇺🇿", "Oʻzbekcha"], ["ar", "🇸🇦", "العربية"], ["en", "🇬🇧", "English"]];
+export type Lang = "ru" | "uz" | "ar" | "en" | "tg";
+export const LANGS: [Lang, string, string][] = [["ru", "🇷🇺", "Русский"], ["uz", "🇺🇿", "Oʻzbekcha"], ["ar", "🇸🇦", "العربية"], ["en", "🇬🇧", "English"], ["tg", "🇹🇯", "Тоҷикӣ"]];
 export const SLUGS = ["safar", "self", "cutting", "hub", "3d-constructor", "vision", "materials"] as const;
 export type Slug = (typeof SLUGS)[number];
 export const META: Record<Slug, { name: string; icon: string; status: "live" | "dev" | "soon" }> = {
@@ -49,6 +49,7 @@ export const T: Record<Lang, D> = {
       hub: { tag: "Yechimlardagi odamlar.", value: "Saudiya Arabistonidagi mehmonlar uchun xizmatlar va yordam bir joyda.", f: [["Yaqin xizmatlar", "Ustalar, tashish va maishiy xizmatlar."], ["Ona tilida", "Rus, oʻzbek, arab va ingliz tillarida."], ["Telegram orqali", "Ijrochilar bilan qulay joyda aloqa."]] },
       "3d-constructor": { tag: "Gʻoyadan haqiqatga.", value: "Mebel uchun 3D konstruktor: loyihani tuzing va tayyorlanishidan oldin koʻring.", f: [["3D loyiha", "Oʻlchamlar, materiallar va buyumning hajmdagi koʻrinishi."], ["Oʻlchamingizga", "Aniq xonaga moslangan mebel."], ["Ishlab chiqarishga tayyor", "Ustaga topshirsa boʻladigan loyiha."]] },
       vision: { tag: "Mebel intellekti.", value: "Mebel tanlash va moslashda yordam beradigan aqlli yordamchi.", f: [["Tanlash", "Uslub, oʻlcham va materiallar boʻyicha maslahatlar."], ["Vizualizatsiya", "Mebel interyeringizda qanday koʻrinishi."], ["Konstruktor bilan bogʻliq", "AMR 3D Constructor loyihasiga oʻtish."]] },
+      cutting: { tag: "Aniq bichish.", value: "Plita va profillar uchun bichish xaritasini hisoblash vositasi.", f: [["Plitalar va profillar", "Bitta buyurtma uchun plita va chiziqli materiallar."], ["Chiqindini kamaytirish", "Bichish sxemasi va aniq hisob-kitob."], ["Chop etish", "Natijani chop etish yoki ulashish."]] },
       materials: { tag: "Barqaror innovatsiyalar.", value: "Mebel va hunarmandchilik uchun materiallar va kompozitlar.", f: [["Materiallar katalogi", "Materiallarning xossalari va qoʻllanilishi."], ["Kompozitlar", "Mustahkam buyumlar uchun zamonaviy yechimlar."], ["Barqarorlik", "Resurslardan ehtiyotkorlik bilan foydalanish."]] },
     },
   },
@@ -65,6 +66,7 @@ export const T: Record<Lang, D> = {
       hub: { tag: "أشخاص في الحلول.", value: "خدمات ومساعدة للقادمين إلى المملكة في مكان واحد.", f: [["خدمات قريبة", "حِرفيون ونقل وخدمات منزلية."], ["بلغتك", "الروسية والأوزبكية والعربية والإنجليزية."], ["عبر تيليجرام", "تواصل مع مقدّمي الخدمة حيث يناسبك."]] },
       "3d-constructor": { tag: "من الفكرة إلى الواقع.", value: "مصمّم أثاث ثلاثي الأبعاد: أنشئ مشروعك وشاهده قبل التصنيع.", f: [["مشروع ثلاثي الأبعاد", "المقاسات والمواد وشكل القطعة بالأبعاد الثلاثة."], ["على مقاسك", "أثاث مصمّم لمساحتك بالتحديد."], ["جاهز للتصنيع", "مشروع يمكن تسليمه للحِرفي."]] },
       vision: { tag: "ذكاء الأثاث.", value: "مساعد ذكي يساعدك على اختيار الأثاث المناسب.", f: [["الاختيار", "اقتراحات حول الطراز والمقاسات والمواد."], ["التصوّر", "كيف سيبدو الأثاث في مساحتك."], ["الربط بالمصمّم", "الانتقال إلى مشروعك في AMR 3D Constructor."]] },
+      cutting: { tag: "قصّ دقيق.", value: "أداة لحساب مخططات قص الألواح والمقاطع.", f: [["الألواح والمقاطع", "حساب مواد الألواح والمواد الطولية للطلب."], ["تقليل الهدر", "مخطط قص وحساب دقيق."], ["الطباعة", "طباعة النتيجة أو مشاركتها."]] },
       materials: { tag: "ابتكار مستدام.", value: "مواد ومركّبات للأثاث والحِرف.", f: [["دليل المواد", "خصائص المواد واستخداماتها."], ["المواد المركّبة", "حلول حديثة لقطع متينة."], ["الاستدامة", "استخدام واعٍ للموارد."]] },
     },
   },
@@ -80,6 +82,7 @@ export const T: Record<Lang, D> = {
       hub: { tag: "People in solutions.", value: "Services and help for newcomers in Saudi Arabia, in one place.", f: [["Services nearby", "Craftsmen, transport and home services."], ["In your language", "Russian, Uzbek, Arabic and English."], ["Via Telegram", "Reach providers where it suits you."]] },
       "3d-constructor": { tag: "From idea to reality.", value: "A 3D furniture constructor: build your project and see it before it's made.", f: [["3D project", "Dimensions, materials and the piece in full 3D."], ["Made to measure", "Furniture fitted to your exact space."], ["Ready for production", "A project you can hand to a craftsman."]] },
       vision: { tag: "Furniture intelligence.", value: "A smart assistant that helps you choose the right furniture.", f: [["Selection", "Suggestions on style, size and materials."], ["Visualisation", "See how furniture looks in your space."], ["Linked to Constructor", "Continue the project in AMR 3D Constructor."]] },
+      cutting: { tag: "Precise cutting.", value: "A cutting-layout tool for sheet goods and linear profiles.", f: [["Sheets and profiles", "Calculate sheet and linear materials for an order."], ["Less waste", "Cutting layouts with clear calculations."], ["Print and share", "Export the result for workshop use."]] },
       materials: { tag: "Sustainable innovation.", value: "Materials and composites for furniture and craft.", f: [["Materials catalogue", "Properties and uses of materials."], ["Composites", "Modern solutions for durable pieces."], ["Sustainability", "Careful use of resources."]] },
     },
   },
